@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Usuarios</h1>
+        <a href="{{ url_for('nuevo_usuario') }}">Nuevo Usuario</a>
+    </main>
+    <section class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+            {% for usuario in usuarios %}
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellido }}</td>
+                    <td>{{ usuario.email }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Todavía no hay usuarios registrados.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
